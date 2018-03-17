@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    
+    <!-- External libs -->
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <!-- Project libs -->
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/lib/carousel/assets/owl.carousel.min.css" />
+  
+    
+  </head>
+  <body>
+      <nav class="navbar">
+          <div class="collapse navbar-collapse" id="home-nav">
+            <ul class="nav navbar-nav">
+                <!--li class="nav-logo">
+                    <a href="#" class="nav-logo-link">
+                      <img class="nav-logo-image" src="https://www.accedo.tv/wp-content/uploads/2017/08/logo.png" alt="Kickstarter Logo">
+                    </a>
+                </li-->
+                <li><a href="#">ACCEDO</a></li>
+                <!--img src="https://www.accedo.tv/wp-content/uploads/2017/08/logo.png" width="150" height="30" class="d-inline-block align-top" alt="Accedo"-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">      
+              <% if(!user) { %>
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/signup">Signup</a></li>
+              <% } else { %>
+                <li><a href="/auth/logout">Logout</a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+ 
+
+  
+        <%- body %>
+              
+
+        
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script> 
+  <script src="/lib/carousel/owl.carousel.js"></script>
+  <script src="/javascripts/carousel.js" charset="utf-8"></script> 
+  </body>
+</html>
