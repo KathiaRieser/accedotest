@@ -1,26 +1,8 @@
-<!--nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <img src="https://www.accedo.tv/wp-content/uploads/2017/08/logo.png" width="150" height="30" class="d-inline-block align-top" alt="Accedo">
-  </a>
-</nav-->
-
-<!--ul>      
-  <% if(!user) { %>
-    <li><a href="/auth/login">Login</a></li>
-    <li><a href="/auth/signup">Signup</a></li>
-  <% } else { %>
-    <li><a href="/auth/logout">Logout</a></li>
-  <% } %>
-</ul-->
-
-
 <div id="owlaccedo" class="owl-carousel owl-theme">
  <% movies.forEach( movie => { %>
-    <div class="item link img-box">
-      <!--a href="/film?url=<%=movie.url%>&id=<%=movie.id%>&title=<%=movie.title%>&duration=<%=movie.duration%>&cover=<%=movie.cover%>"-->
-      <img src="<%= movie.cover %>" href="/film?url=<%=movie.url%>&id=<%=movie.id%>&title=<%=movie.title%>&duration=<%=movie.duration%>&cover=<%=movie.cover%>" movie="<%= movie.url %>" width="200" height="450" class="d-inline-block align-top" alt="<%= movie.title %>">
-      <!--/a-->
-      <!--h4><%=movie.title%></h4-->
+    <div class="item link img-box text-box">
+      <img src="<%= movie.cover %>" href="film?url=<%=movie.url%>&id=<%=movie.id%>&title=<%=movie.title%>&duration=<%=movie.duration%>&cover=<%=movie.cover%>" movie="<%= movie.url %>" width="200" height="450" class="d-inline-block align-top" alt="<%= movie.title %>">
+      <h4><%=movie.title%></h4>
     </div>
  <% }) %>
 </div>
@@ -30,9 +12,13 @@
 </div>
 <br>
 <% if(user) { %>
-
+  <h3>Movies Whatched</h3>
+  <div id="owluser" class="owl-carousel owl-theme">
     <% watched.forEach( watch => { %>
+       <div class="item text-box">
          <img src="<%= watch.cover %>" width="200" height="200" class="d-inline-block align-top" alt="<%= watch.title %>">
+         <p><%= watch.title %></p>
+       </div>
     <% }) %>
-
+   </div>
 <% } %>

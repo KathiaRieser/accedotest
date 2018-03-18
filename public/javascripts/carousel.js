@@ -6,9 +6,20 @@ $(document).ready(function(){
     loop: true,
     dots:false,
     items:6,
-    lazyLoad: true,
-    onDragged: callback
+    lazyLoad: true
 
+  });
+
+  
+  var owluser = $("#owluser");
+
+  owluser.owlCarousel({
+    loop: true,
+    dots:false,
+    items:6,
+    lazyLoad: true,
+    dots: true,
+    autoplay: true
 
   });
 
@@ -33,8 +44,23 @@ $(document).ready(function(){
         //console.log($('img').hasClass('arrow'));
         //console.log($("img[class*='arrow']").attr('href'));
         if($('img').hasClass('arrow')){
-          $(location).attr('href',$("img[class*='arrow']").attr('href'));
-        }
+
+          var data = {};
+					//data.title = "title";
+					//data.message = "message";
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: window.location.href + $("img[class*='arrow']").attr('href'),						
+                        success: function(data) {
+                            //console.log('success');
+                            //console.log(JSON.stringify(data));
+                            $(location).attr('href', '/film?url='+ data.movie);
+                            
+                        }
+                    });
+           }
         break;
     }
  })
@@ -45,76 +71,61 @@ $(document).ready(function(){
   var prev = event.item.index - 1; 
   var current = event.item.index;
   var before = event.item.index + 1; 
-  console.log(current);
+  //console.log(current);
 
   $(event.target).find(".owl-item").eq(prev).find("img").removeClass('arrow');
   $(event.target).find(".owl-item").eq(current).find("img").addClass('arrow');
   $(event.target).find(".owl-item").eq(before).find("img").removeClass('arrow');
-  var href = $(event.target).find(".owl-item").eq(current).find("img").attr('href');
-  console.log('Image current is ' + href);
+  //var href = $(event.target).find(".owl-item").eq(current).find("img").attr('href');
+  //console.log('Image current is ' + href);
 });
 
-  // Listen to owl events:
-  /*owl.on('changed.owl.carousel', function(event) {
-    var currentItem = event.item.index;
-    console.log("Current Item " + currentItem);
-    console.log(event.target);
-    console.log($(this));
-
-    //window.location.hash = currentItem + 1;
-  })*/
 
   $('.link').on('click', function(){
 
-    //console.log($(this).next().attr("href"));
-    console.log($(this).children().attr("href"));
-    $(location).attr('href',$(this).children().attr("href"));
-
+          var data = {};
+					//data.title = "title";
+					//data.message = "message";
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: window.location.href + $(this).children().attr("href"),						
+                        success: function(data) {
+                            //console.log('success');
+                            //console.log(JSON.stringify(data));
+                            $(location).attr('href', '/film?url='+ data.movie);
+                            
+                        }
+                    });
 
 })
 
-  /*$('.link').on('click', function(event){
+if (window.location.pathname == '/film'){
 
-        console.log(event.item);
-   
+  //We have to control this tomorrow
+  var elemVidio = $('#ourvideo');
+  console.log(elemVidio);
+  elemVidio[0].play(); 
+  elemVidio.on('play',function(){
+    console.log('Video has estarted!');
+    var vid = elemVidio[0];
+    if (vid.requestFullscreen) {
+      vid.requestFullscreen();
+    } else if (vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    } else if (vid.webkitRequestFullscreen) {
+      vid.webkitRequestFullscreen();
+    }else {
+      console.log('Fullscreen API is not supported.');
+    }
+  
+  });
+  elemVidio.on('ended',function(){
+  $(location).attr('href','/');
+  });
 
-  })*/
-
-
-
-  function callback(event) {
-    console.log(event.item.index);
-    // Provided by the core
-    var element   = event.target;         // DOM element, in this example .owl-carousel
-    var name      = event.type;           // Name of the event, in this example dragged
-    var namespace = event.namespace;      // Namespace of the event, in this example owl.carousel
-    var items     = event.item.count;     // Number of items
-    var item      = event.item.index;     // Position of the current item
-    // Provided by the navigation plugin
-    var pages     = event.page.count;     // Number of pages
-    var page      = event.page.index;     // Position of the current page
-    var size      = event.page.size;      // Number of items per page
 }
-
-
-
-//We have to control this tomorrow
-var elemVidio = $('#ourvideo');
-console.log(elemVidio);
-if (elemVidio.requestFullscreen) {
-  elemVidio.requestFullscreen();
-}
-
-elemVidio[0].play(); 
-
-elemVidio.on('play',function(){
-  console.log('Video has estarted!');
-});
-
-elemVidio.on('ended',function(){
-$(location).attr('href','/');
-});
-
 
 
 });
