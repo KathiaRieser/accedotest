@@ -50,7 +50,6 @@
 - **USBAT** : Logout
 
 #### Routes
-
 - `GET` `/`. Basic home page that displayed a list of vidios in a horizontal carousel. "Welcome < User Name >" once the user is logged in. If the user hasn't started a session, he should be redirected to `/login` page.
 - `GET` `/signup`. The signup page show a form with the fields `username` and `password`.
 - `POST` `/signup`. We save the user information in the database.
@@ -61,7 +60,6 @@
 - `POST` `/film`. Save film selected in user logged info.
 
 #### Pages
-
 - `index.ejs`
 - `layouts/main.ejs`
 - `auth/signup.ejs`
@@ -69,7 +67,6 @@
 - `film/film.ejs`
 
 #### Models
-
 - `User`
   - `username` - User's name
   - `password` - Encrypted password with BCrypt
@@ -81,6 +78,14 @@
   - `url` - Movie's url
   - `duration` - Movie's duration
   - `cover` - Movie's cover image
+  
+#### Public
+- `javascripts/carousel.js`
+- `stylesheets/style.js`
+
+#### logic
+- `movie.js`
+
 
 ## DEMO
 
