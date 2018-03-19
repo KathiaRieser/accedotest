@@ -36,12 +36,18 @@
 - mongoose
 - connect-mongo
 
-#### Features
+## Documentation
 
-- **USBAT** => View the home page.
-- **USBAT** => Register in the application.
-- **USBAT** => Login  
-- **USBAT** => Logout
+#### Features
+<!-- :::info -->
+:bulb: **USBAT** stands for **U**ser **S**hould **B**e **A**ble **T**o
+<!-- ::: -->
+
+- **USBAT** : View the home page with movies.
+- **USBAT** : View the home page with movies and a list of movies whatched by user logged.
+- **USBAT** : Register in the application.
+- **USBAT** : Login  
+- **USBAT** : Logout
 
 #### Routes
 
