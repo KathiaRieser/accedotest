@@ -82,7 +82,7 @@
   - `duration` - Movie's duration
   - `cover` - Movie's cover image
 
-#### DEMO
+## DEMO
 
 [Accedo Test](http://accedorieser.herokuapp.com/)
 
