@@ -18,7 +18,6 @@ $(document).ready(function(){
     dots:false,
     items:6,
     lazyLoad: true,
-    dots: true,
     autoplay: true
 
   });
@@ -103,24 +102,6 @@ $(document).ready(function(){
 
 if (window.location.pathname == '/film'){
 
-  //We have to control this tomorrow
-  var elemVidio = $('#ourvideo');
-  console.log(elemVidio);
-  elemVidio[0].play(); 
-  elemVidio.on('play',function(){
-    console.log('Video has estarted!');
-    var vid = elemVidio[0];
-    if (vid.requestFullscreen) {
-      vid.requestFullscreen();
-    } else if (vid.mozRequestFullScreen) {
-      vid.mozRequestFullScreen();
-    } else if (vid.webkitRequestFullscreen) {
-      vid.webkitRequestFullscreen();
-    }else {
-      console.log('Fullscreen API is not supported.');
-    }
-  
-  });
   elemVidio.on('ended',function(){
   $(location).attr('href','/');
   });

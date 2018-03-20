@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
       User.findById(user.id).populate('movies').select('movies')
         .exec((err, filmsWacthed) => {
           //console.log("Ejecutamos query");
-          console.log(filmsWacthed.movies);
+          //console.log(filmsWacthed.movies);
           if (err) { return next(err); }
           res.render('index', { title: 'Accedo', movies:films, watched:filmsWacthed.movies });
         })
