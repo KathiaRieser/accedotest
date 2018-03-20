@@ -9,12 +9,6 @@
 - User logged can see a list of videos that has previously watched in home page.
 - The app is responsible to changing screen sizes. Mobile view is not implemented.
 
-## Requirements
-
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone this repo into your `~/code/labs`
-- Create .env after fork and write DBURL=mongodb://localhost/accedo (you have to instal mongodb)
-
 ## Prerequisites fullfilled
 
 - The app work in the last version of Chrome Browser
@@ -23,19 +17,12 @@
 - Data between the server and client side is in JSON format.
 - MongoDB as DB
 
-## Installed NPM Packages 
-- axios
-- bcrypt
-- body-parse
-- passport
-- bootsrap@3.3.7
-- jquery@3.3.1
-- owl.carousel@2.3.2
-- express
-- express-ejs-layouts
-- espress-session
-- mongoose
-- connect-mongo
+## Requirements to work with project
+
+- [Fork this repo](https://guides.github.com/activities/forking/)
+- Clone this repo into your `~/code/labs`
+- Create .env after fork and write DBURL=mongodb://localhost/accedo (you have to install mongodb)
+- Install NPM packages dependencies "npm i"
 
 ## Documentation
 
