@@ -19,9 +19,7 @@
 
 ## Requirements to work with project
 
-- [Fork this repo](https://guides.github.com/activities/forking/)
-- Clone this repo into your `~/code/labs`
-- Create .env after fork and write DBURL=mongodb://localhost/accedo (you have to install mongodb)
+- Create .env after download or clone and write DBURL=mongodb://localhost/accedo (you have to install mongodb)
 - Install NPM packages dependencies "npm i"
 
 ## Documentation
